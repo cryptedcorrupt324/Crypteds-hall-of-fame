@@ -8,6 +8,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <audio id="bg-music" autoplay loop>
+  <source src="https://file.garden/aFOONrApqiM6iGro/nope%20your%20too%20late%20i%20already%20died%20(hoodtrap%20jerk%20remix).mp3" type="audio/mpeg" />
+</audio>
+
+<script>
+  const audio = document.getElementById('bg-music');
+  window.addEventListener('click', () => {
+    audio.play();
+  }, { once: true });
+</script>
+
 
   <div class="volume-bar">
     <label for="volume">🔊 Volume:</label>
