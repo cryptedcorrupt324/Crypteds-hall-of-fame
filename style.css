@@ -86,6 +86,7 @@ h1 {
   box-shadow: 0 0 40px #00ffee;
   transition: all 0.3s ease;
 }
+
 .footer-bar {
   position: fixed;
   bottom: 0;
@@ -120,19 +121,6 @@ h1 {
 .discord-btn:hover {
   background: #4752C4;
 }
-.rank {
-  font-size: 0.6rem;
-  font-weight: bold;
-  text-shadow: 0 0 5px currentColor;
-  margin-top: 6px;
-}
-
-.pink   { color: #ff69b4; }
-.purple { color: #a020f0; }
-.yellow { color: #ffff00; }
-.red    { color: #ff4444; }
-.blue   { color: #00aaff; }
-.gray   { color: #aaaaaa; }
 
 .fullscreen-blur {
   position: fixed;
