@@ -124,6 +124,7 @@ h1 {
   font-size: 0.6rem;
   font-weight: bold;
   text-shadow: 0 0 5px currentColor;
+  margin-top: 6px;
 }
 
 .pink   { color: #ff69b4; }
@@ -132,4 +133,14 @@ h1 {
 .red    { color: #ff4444; }
 .blue   { color: #00aaff; }
 .gray   { color: #aaaaaa; }
+
+.fullscreen-blur {
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 10000;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
