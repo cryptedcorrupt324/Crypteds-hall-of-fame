@@ -27,6 +27,23 @@ h1 {
   color: #00ffee;
   margin-bottom: 10px;
 }
+.volume-bar {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 999;
+  background: #111;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #00ffee;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: #00ffee;
+}
+.volume-bar input[type="range"] {
+  margin-left: 10px;
+  accent-color: #00ffee;
+}
 
 .sub {
   color: #999;
