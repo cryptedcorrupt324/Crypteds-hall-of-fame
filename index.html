@@ -12,7 +12,6 @@
       font-family: 'Press Start 2P', monospace;
       margin: 0;
     }
-
     canvas#particles {
       position: fixed;
       top: 0;
@@ -22,26 +21,22 @@
       height: 100vh;
       pointer-events: none;
     }
-
     .container {
       padding: 40px 20px;
       max-width: 1000px;
       margin: 0 auto;
       text-align: center;
     }
-
     h1 {
       font-size: 2rem;
       color: #00ffee;
       margin-bottom: 10px;
     }
-
     .sub {
       color: #999;
       font-size: 0.75rem;
       margin-bottom: 40px;
     }
-
     .hof-grid {
       display: flex;
       flex-wrap: wrap;
@@ -49,7 +44,6 @@
       justify-content: center;
       margin-bottom: 100px;
     }
-
     .hof-card {
       background: #1a1a1a;
       border: 2px solid #00ffee;
@@ -60,42 +54,113 @@
       box-shadow: 0 0 15px #00ffee;
       cursor: pointer;
     }
-
     .hof-card:hover {
       transform: scale(1.05);
     }
-
     .hof-card img {
       width: 100%;
       height: auto;
       border-radius: 8px;
       margin-bottom: 15px;
     }
-
     .hof-card h2 {
       font-size: 0.75rem;
       margin-bottom: 10px;
       color: #00ffee;
     }
-
     .hof-card p {
       font-size: 0.6rem;
       color: #ccc;
       margin: 4px 0;
     }
-
     .rank {
       font-size: 0.6rem;
       font-weight: bold;
-      text-shadow: 0 0 5px currentColor;
+      text-shadow: 0 0 8px currentColor;
+      margin-top: 6px;
     }
-
     .pink { color: #ff69b4; }
     .purple { color: #a020f0; }
     .yellow { color: #ffff00; }
     .red { color: #ff4444; }
     .blue { color: #00aaff; }
     .gray { color: #aaaaaa; }
+
+    .hof-card.fullscreen {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      width: 90vw;
+      max-width: 600px;
+      z-index: 10001;
+      background: #1a1a1a;
+      box-shadow: 0 0 40px #00ffee;
+      transition: all 0.4s ease-in-out;
+      padding: 30px;
+    }
+    .hof-card.fullscreen:hover {
+      transform: translate(-50%, -50%) scale(1);
+    }
+    .fullscreen-blur {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 10000;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      pointer-events: auto;
+    }
+    @media (max-width: 600px) {
+      .hof-card {
+        width: 90%;
+        font-size: 10px;
+      }
+      .hof-card.fullscreen {
+        width: 95vw;
+        padding: 20px;
+        transform: translate(-50%, -50%) scale(1);
+      }
+      h1 {
+        font-size: 1.25rem;
+      }
+      .sub {
+        font-size: 0.65rem;
+      }
+    }
+    .footer-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #111;
+      color: #00ffee;
+      text-align: center;
+      font-family: 'Press Start 2P', monospace;
+      padding: 10px;
+      font-size: 0.55rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 9999;
+      box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.2);
+    }
+    .discord-btn {
+      background: #5865F2;
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.6rem;
+      font-family: 'Press Start 2P', monospace;
+      box-shadow: 0 0 8px #5865F2;
+      transition: background 0.3s ease;
+    }
+    .discord-btn:hover {
+      background: #4752C4;
+    }
   </style>
 </head>
 <body>
@@ -110,73 +175,78 @@
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385099842396880987/heartforweb.png" alt="">
       <h2>MY GF&lt;3</h2>
       <p>She's so cool, I love her sm.</p>
-      <p class="rank pink">ML &lt;3</p>
+      <p class="rank pink">ML &lt;3 (#ff69b4)</p>
     </div>
 
     <div class="hof-card">
       <img src="https://placekitten.com/151/151" alt="">
       <h2>@crypteddeveloper</h2>
       <p>The creator/founder.</p>
-      <p class="rank purple">Founder</p>
+      <p class="rank purple">Founder (#a020f0)</p>
     </div>
 
     <div class="hof-card">
       <img src="https://placekitten.com/151/151" alt="">
       <h2>@steinistuff</h2>
       <p>You're a good and funny friend stein, thanks for always being there for me. I trust you the most.</p>
-      <p class="rank yellow">Co-Owner</p>
+      <p class="rank yellow">Co-Owner (#ffff00)</p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1187459046358388826/1384934409609936967/hehe_game_update_thing.png" alt="">
       <h2>@themonkeyman642</h2>
       <p>You're a funny and nice friend, thanks for being my friend. And thanks for helping me when I needed it.</p>
-      <p class="rank red">Admin</p>
+      <p class="rank red">Admin (#ff4444)</p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@Tophat/Fordf150</h2>
       <p>A very good friend of mine, tophat you're funny and crazy.</p>
-      <p class="rank blue">Mod</p>
+      <p class="rank blue">Mod (#00aaff)</p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@frostydevlmao</h2>
       <p>We play VR a lot, he helps me with my copy when I need it and he's funny.</p>
-      <p class="rank blue">Mod</p>
+      <p class="rank blue">Mod (#00aaff)</p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@cheesygtag</h2>
       <p>We've been friends for a year now and he's very nice, but he can be a meanie when it comes to Minecraft.</p>
-      <p class="rank gray">Member</p>
+      <p class="rank gray">Member (#aaaaaa)</p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@idkjaden</h2>
       <p>We haven't been friends for that long but he's funny and we joke around a lot.</p>
-      <p class="rank gray">Member</p>
+      <p class="rank gray">Member (#aaaaaa)</p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@ttrfreaky</h2>
       <p>We also haven't been friends for that long but he's funny and nice. He can also be a meanie and a little freaky..</p>
-      <p class="rank gray">Member</p>
+      <p class="rank gray">Member (#aaaaaa)</p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>Aqua</h2>
       <p>He's cool and he helps me.</p>
-      <p class="rank gray">Member</p>
+      <p class="rank gray">Member (#aaaaaa)</p>
     </div>
   </div>
 </main>
+
+<div class="footer-bar">
+  <p>Want to be on here? Apply in our Discord!</p>
+  <a href="https://discord.gg/uQB2uqBuE7" target="_blank" class="discord-btn">Join Discord</a>
+</div>
 
 <script>
   const canvas = document.getElementById('particles');
@@ -216,6 +286,25 @@
   window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+  });
+
+  document.querySelectorAll('.hof-card').forEach(card => {
+    card.addEventListener('click', function () {
+      const isFullscreen = card.classList.contains('fullscreen');
+      document.querySelectorAll('.hof-card.fullscreen').forEach(c => c.classList.remove('fullscreen'));
+      document.querySelectorAll('.fullscreen-blur').forEach(b => b.remove());
+
+      if (!isFullscreen) {
+        card.classList.add('fullscreen');
+        const blur = document.createElement('div');
+        blur.className = 'fullscreen-blur';
+        blur.addEventListener('click', () => {
+          card.classList.remove('fullscreen');
+          blur.remove();
+        });
+        document.body.appendChild(blur);
+      }
+    });
   });
 </script>
 
