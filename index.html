@@ -46,13 +46,14 @@
     const overlay = document.getElementById('unmute-overlay');
     const volumeSlider = document.getElementById('volume');
 
-    overlay.addEventListener('click', () => {
-  audio.muted = false;
-  overlay.classList.add('fade-out');
-  setTimeout(() => {
-    overlay.style.display = 'none';
-  }, 1000);
-});
+       overlay.addEventListener('click', () => {
+       audio.muted = false;
+        overlay.classList.add('fade-out');
+      setTimeout(() => {
+     overlay.style.display = 'none';
+    }, 1000); 
+  });
+
 
     });
 
