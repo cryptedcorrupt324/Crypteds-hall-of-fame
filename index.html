@@ -18,7 +18,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      z-index: -1;
+      z-index: -2;
       width: 100vw;
       height: 100vh;
       pointer-events: none;
@@ -57,7 +57,7 @@
       padding: 20px;
       border-radius: 12px;
       width: 220px;
-      transition: transform 0.2s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
       box-shadow: 0 0 15px #00ffee;
       cursor: pointer;
     }
@@ -88,17 +88,49 @@
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(1.5);
-      width: 80vw;
+      transform: translate(-50%, -50%) scale(1);
+      width: 90vw;
       max-width: 600px;
-      z-index: 9999;
+      z-index: 10001;
       background: #1a1a1a;
       box-shadow: 0 0 40px #00ffee;
-      transition: all 0.3s ease;
+      transition: all 0.4s ease-in-out;
+      padding: 30px;
     }
 
     .hof-card.fullscreen:hover {
-      transform: translate(-50%, -50%) scale(1.5);
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .fullscreen-blur {
+      position: fixed;
+      inset: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 10000;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    @media (max-width: 600px) {
+      .hof-card {
+        width: 90%;
+        font-size: 10px;
+      }
+
+      .hof-card.fullscreen {
+        width: 95vw;
+        padding: 20px;
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      h1 {
+        font-size: 1.25rem;
+      }
+
+      .sub {
+        font-size: 0.65rem;
+      }
     }
   </style>
 </head>
@@ -166,7 +198,7 @@
     </div>
   </div>
 </main>  
-  
+
 <script>
   const canvas = document.getElementById('particles');
   const ctx = canvas.getContext('2d');
@@ -214,11 +246,19 @@
 
   document.querySelectorAll('.hof-card').forEach(card => {
     card.addEventListener('click', function () {
-      if (card.classList.contains('fullscreen')) {
-        card.classList.remove('fullscreen');
-      } else {
-        document.querySelectorAll('.hof-card.fullscreen').forEach(el => el.classList.remove('fullscreen'));
+      const isFullscreen = card.classList.contains('fullscreen');
+      document.querySelectorAll('.hof-card.fullscreen').forEach(c => c.classList.remove('fullscreen'));
+      document.querySelectorAll('.fullscreen-blur').forEach(b => b.remove());
+
+      if (!isFullscreen) {
         card.classList.add('fullscreen');
+        const blur = document.createElement('div');
+        blur.className = 'fullscreen-blur';
+        blur.addEventListener('click', () => {
+          card.classList.remove('fullscreen');
+          blur.remove();
+        });
+        document.body.appendChild(blur);
       }
     });
   });
