@@ -72,3 +72,17 @@ h1 {
   font-size: 0.6rem;
   color: #ccc;
 }
+
+.hof-card.fullscreen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.5);
+  width: 80vw;
+  max-width: 600px;
+  height: auto;
+  z-index: 9999;
+  background: #1a1a1a;
+  box-shadow: 0 0 40px #00ffee;
+  transition: all 0.3s ease;
+}
