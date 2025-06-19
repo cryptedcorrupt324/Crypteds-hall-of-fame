@@ -8,16 +8,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <div id="unmute-overlay">
-    Click to unmute music
-  </div>
 
   <div class="volume-bar">
     <label for="volume">🔊 Volume:</label>
     <input type="range" id="volume" min="0" max="100" value="100" />
   </div>
 
-  <audio id="bg-music" autoplay loop muted>
+  <audio id="bg-music" autoplay loop>
     <source src="https://files.catbox.moe/xaovi8.mp3" type="audio/mpeg" />
   </audio>
 
@@ -43,19 +40,7 @@
 
   <script>
     const audio = document.getElementById('bg-music');
-    const overlay = document.getElementById('unmute-overlay');
     const volumeSlider = document.getElementById('volume');
-
-       overlay.addEventListener('click', () => {
-       audio.muted = false;
-        overlay.classList.add('fade-out');
-      setTimeout(() => {
-     overlay.style.display = 'none';
-    }, 1000); 
-  });
-
-
-    });
 
     volumeSlider.addEventListener('input', () => {
       audio.volume = volumeSlider.value / 100;
