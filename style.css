@@ -16,6 +16,24 @@ body {
   text-align: center;
   min-height: 100vh;
   padding: 40px 20px;
+  position: relative;
+}
+
+#unmute-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #000c;
+  color: #00ffee;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .container {
