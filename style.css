@@ -34,6 +34,31 @@ body {
   align-items: center;
   cursor: pointer;
   z-index: 1000;
+  
+  opacity: 1;
+  animation: fadeInOut 3s ease-in-out infinite alternate;
+  transition: opacity 1s ease;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+
+#unmute-overlay.fade-out {
+  animation: none;
+  opacity: 0;
+  pointer-events: none;
+}
+
+  z-index: 1000;
 }
 
 .container {
