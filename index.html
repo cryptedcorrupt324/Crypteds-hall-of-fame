@@ -58,6 +58,7 @@
       width: 220px;
       transition: transform 0.2s;
       box-shadow: 0 0 15px #00ffee;
+      cursor: pointer;
     }
 
     .hof-card:hover {
@@ -80,6 +81,23 @@
     .hof-card p {
       font-size: 0.6rem;
       color: #ccc;
+    }
+
+    .hof-card.fullscreen {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(1.5);
+      width: 80vw;
+      max-width: 600px;
+      z-index: 9999;
+      background: #1a1a1a;
+      box-shadow: 0 0 40px #00ffee;
+      transition: all 0.3s ease;
+    }
+
+    .hof-card.fullscreen:hover {
+      transform: translate(-50%, -50%) scale(1.5);
     }
   </style>
 </head>
@@ -122,30 +140,30 @@
       <p>We play vr alot, he helps me with my copy when i need it and hes funny.</p>
     </div>
 
-     <div class="hof-card">
+    <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="" />
       <h2>@cheesygtag</h2>
       <p>We've been friends for a year now and hes very nice, but he can be a meanie when it comes to minecraft.</p>
     </div>
     
-     <div class="hof-card">
+    <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="" />
       <h2>@idkjaden</h2>
       <p>We havent been friends for that long but hes funny and we joke around alot.</p>
     </div>
      
-     <div class="hof-card">
+    <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="" />
       <h2>@ttrfreaky</h2>
       <p>We also havent been friends for that long but hes funny and nice. He can also be a meanie and a little freaky..</p>
     </div>
        
-     <div class="hof-card">
+    <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="" />
       <h2>Aqua</h2>
       <p>Hes cool and he helps me.</p>
     </div>
-    
+  </div>
 </main>  
   
 <script>
@@ -191,6 +209,19 @@
   window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
+  });
+
+  document.querySelectorAll('.hof-card').forEach(card => {
+    card.addEventListener('click', function () {
+      if (card.classList.contains('fullscreen')) {
+        card.classList.remove('fullscreen');
+        document.body.style.overflow = '';
+      } else {
+        document.querySelectorAll('.hof-card.fullscreen').forEach(el => el.classList.remove('fullscreen'));
+        card.classList.add('fullscreen');
+        document.body.style.overflow = 'hidden';
+      }
+    });
   });
 </script>
 
