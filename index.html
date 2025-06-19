@@ -78,6 +78,14 @@
       font-weight: bold;
       text-shadow: 0 0 8px currentColor;
       margin-top: 6px;
+      display: inline-block;
+    }
+    .colorcode {
+      font-size: 0.5rem;
+      font-weight: normal;
+      color: #ccc;
+      text-shadow: none;
+      margin-left: 6px;
     }
     .pink { color: #ff69b4; }
     .purple { color: #a020f0; }
@@ -175,70 +183,70 @@
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385099842396880987/heartforweb.png" alt="">
       <h2>MY GF&lt;3</h2>
       <p>She's so cool, I love her sm.</p>
-      <p class="rank pink">ML &lt;3 (#ff69b4)</p>
+      <p class="rank pink">ML &lt;3 <span class="colorcode">#ff69b4</span></p>
     </div>
 
     <div class="hof-card">
       <img src="https://placekitten.com/151/151" alt="">
       <h2>@crypteddeveloper</h2>
       <p>The creator/founder.</p>
-      <p class="rank purple">Founder (#a020f0)</p>
+      <p class="rank purple">Founder <span class="colorcode">#a020f0</span></p>
     </div>
 
     <div class="hof-card">
       <img src="https://placekitten.com/151/151" alt="">
       <h2>@steinistuff</h2>
       <p>You're a good and funny friend stein, thanks for always being there for me. I trust you the most.</p>
-      <p class="rank yellow">Co-Owner (#ffff00)</p>
+      <p class="rank yellow">Co-Owner <span class="colorcode">#ffff00</span></p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1187459046358388826/1384934409609936967/hehe_game_update_thing.png" alt="">
       <h2>@themonkeyman642</h2>
       <p>You're a funny and nice friend, thanks for being my friend. And thanks for helping me when I needed it.</p>
-      <p class="rank red">Admin (#ff4444)</p>
+      <p class="rank red">Admin <span class="colorcode">#ff4444</span></p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@Tophat/Fordf150</h2>
       <p>A very good friend of mine, tophat you're funny and crazy.</p>
-      <p class="rank blue">Mod (#00aaff)</p>
+      <p class="rank blue">Mod <span class="colorcode">#00aaff</span></p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@frostydevlmao</h2>
       <p>We play VR a lot, he helps me with my copy when I need it and he's funny.</p>
-      <p class="rank blue">Mod (#00aaff)</p>
+      <p class="rank blue">Mod <span class="colorcode">#00aaff</span></p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@cheesygtag</h2>
       <p>We've been friends for a year now and he's very nice, but he can be a meanie when it comes to Minecraft.</p>
-      <p class="rank gray">Member (#aaaaaa)</p>
+      <p class="rank gray">Member <span class="colorcode">#aaaaaa</span></p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@idkjaden</h2>
       <p>We haven't been friends for that long but he's funny and we joke around a lot.</p>
-      <p class="rank gray">Member (#aaaaaa)</p>
+      <p class="rank gray">Member <span class="colorcode">#aaaaaa</span></p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@ttrfreaky</h2>
       <p>We also haven't been friends for that long but he's funny and nice. He can also be a meanie and a little freaky..</p>
-      <p class="rank gray">Member (#aaaaaa)</p>
+      <p class="rank gray">Member <span class="colorcode">#aaaaaa</span></p>
     </div>
 
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>Aqua</h2>
       <p>He's cool and he helps me.</p>
-      <p class="rank gray">Member (#aaaaaa)</p>
+      <p class="rank gray">Member <span class="colorcode">#aaaaaa</span></p>
     </div>
   </div>
 </main>
@@ -288,8 +296,9 @@
     canvas.height = window.innerHeight;
   });
 
+  // Fullscreen card toggle
   document.querySelectorAll('.hof-card').forEach(card => {
-    card.addEventListener('click', function () {
+    card.addEventListener('click', () => {
       const isFullscreen = card.classList.contains('fullscreen');
       document.querySelectorAll('.hof-card.fullscreen').forEach(c => c.classList.remove('fullscreen'));
       document.querySelectorAll('.fullscreen-blur').forEach(b => b.remove());
