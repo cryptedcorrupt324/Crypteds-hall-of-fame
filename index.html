@@ -6,40 +6,163 @@
   <title>CRYPTED'S HALL OF FAME</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background: #0a0a0a;
+      color: #ffffff;
+      font-family: 'Press Start 2P', monospace;
+      overflow: hidden;
+    }
+
+    canvas#particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #00ffee;
+      margin-bottom: 10px;
+    }
+
+    .sub {
+      color: #999;
+      font-size: 0.75rem;
+      margin-bottom: 40px;
+    }
+
+    .hof-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .hof-card {
+      background: #1a1a1a;
+      border: 2px solid #00ffee;
+      padding: 20px;
+      border-radius: 12px;
+      width: 220px;
+      transition: transform 0.2s;
+      box-shadow: 0 0 15px #00ffee;
+    }
+
+    .hof-card:hover {
+      transform: scale(1.05);
+    }
+
+    .hof-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .hof-card h2 {
+      font-size: 0.75rem;
+      margin-bottom: 10px;
+      color: #00ffee;
+    }
+
+    .hof-card p {
+      font-size: 0.6rem;
+      color: #ccc;
+    }
+  </style>
 </head>
 <body>
 
-  <main class="container">
-    <h1>CRYPTED'S HALL OF FAME</h1>
-    <p class="sub">Cool People <3.</p>
+<canvas id="particles"></canvas>
 
-    <div class="hof-grid">
-      <div class="hof-card">
-        <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385099842396880987/heartforweb.png?ex=6854d640&is=685384c0&hm=02f21b2d6cab9d619ed73a3fea98352415fba056363c7269f58a671b39b49268&" alt="" />
-        <h2>MY GF!</h2>
-        <p>She's so cool, I love her sm.</p>
-      </div>
+<main class="container">
+  <h1>CRYPTED'S HALL OF FAME</h1>
+  <p class="sub">Cool People <3.</p>
 
-      <div class="hof-card">
-        <img src="https://placekitten.com/151/151" alt="" />
-        <h2>@steinistuff</h2>
-        <p>You're a good and funny friend stein, thanks for always being there for me.</p>
-      </div>
-      
-       <div class="hof-card">
-        <img src="https://cdn.discordapp.com/attachments/1187459046358388826/1384934409609936967/hehe_game_update_thing.png?ex=68543c2e&is=6852eaae&hm=c844481c960c10e947afb5a17d2f157a37b00c458c7f604ad42987ba0c152647&" alt="" />
-        <h2>@themonkeyman642</h2>
-        <p>You're a funny and nice friend, thanks for being my friend.</p>
-      </div>
-        
-       <div class="hof-card">
-        <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png?ex=6854e444&is=685392c4&hm=595d713c1996cf5fc850f24460be31b691f7053f6a13adba56c6336766c2235e&" alt="" />
-        <h2>@Tophat/Fordf150</h2>
-        <p>A very good friend of mine, tophat you're funny and crazy.</p>
-      </div>
-      
+  <div class="hof-grid">
+    <div class="hof-card">
+      <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385099842396880987/heartforweb.png" alt="" />
+      <h2>MY GF!</h2>
+      <p>She's so cool, I love her sm.</p>
     </div>
-  </main>
+
+    <div class="hof-card">
+      <img src="https://placekitten.com/151/151" alt="" />
+      <h2>@steinistuff</h2>
+      <p>You're a good and funny friend stein, thanks for always being there for me.</p>
+    </div>
+
+    <div class="hof-card">
+      <img src="https://cdn.discordapp.com/attachments/1187459046358388826/1384934409609936967/hehe_game_update_thing.png" alt="" />
+      <h2>@themonkeyman642</h2>
+      <p>You're a funny and nice friend, thanks for being my friend.</p>
+    </div>
+
+    <div class="hof-card">
+      <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="" />
+      <h2>@Tophat/Fordf150</h2>
+      <p>A very good friend of mine, tophat you're funny and crazy.</p>
+    </div>
+  </div>
+</main>
+
+<script>
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+
+  for (let i = 0; i < 100; i++) {
+    particles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      size: Math.random() * 2 + 1,
+      dx: (Math.random() - 0.5) * 0.5,
+      dy: (Math.random() - 0.5) * 0.5
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+      p.x += p.dx;
+      p.y += p.dy;
+
+      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(0, 255, 255, 0.4)';
+      ctx.fill();
+    });
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
 
 </body>
 </html>
