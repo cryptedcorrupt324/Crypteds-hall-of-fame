@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Press Start 2P', monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 1000px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #00ffee;
+  margin-bottom: 10px;
+}
+
+.sub {
+  color: #999;
+  font-size: 0.75rem;
+  margin-bottom: 40px;
+}
+
+.hof-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.hof-card {
+  background: #1a1a1a;
+  border: 2px solid #00ffee;
+  padding: 20px;
+  border-radius: 12px;
+  width: 220px;
+  transition: transform 0.2s;
+}
+
+.hof-card:hover {
+  transform: scale(1.05);
+}
+
+.hof-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.hof-card h2 {
+  font-size: 0.75rem;
+  margin-bottom: 10px;
+  color: #00ffee;
+}
+
+.hof-card p {
+  font-size: 0.6rem;
+  color: #ccc;
+}
