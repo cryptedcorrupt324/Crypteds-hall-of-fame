@@ -19,39 +19,6 @@ body {
   position: relative;
 }
 
-#unmute-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.8);
-  color: #00ffee;
-  font-family: 'Press Start 2P', monospace;
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 1000;
-  opacity: 1;
-  transition: opacity 1s ease;
-}
-
-#unmute-overlay.fade-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-#unmute-overlay.fade-out {
-  animation: none;
-  opacity: 0;
-  pointer-events: none;
-}
-
-  z-index: 1000;
-}
-
 .container {
   max-width: 1000px;
 }
