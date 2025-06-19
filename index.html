@@ -8,6 +8,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="volume-bar">
+  <label for="volume">🔊 Volume:</label>
+  <input type="range" id="volume" min="0" max="100" value="100">
+</div>
+
+<audio id="bg-music" autoplay loop>
+  <source src="https://files.catbox.moe/xaovi8.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const audio = document.getElementById('bg-music');
+  const volumeSlider = document.getElementById('volume');
+  audio.volume = 1;
+  volumeSlider.addEventListener('input', () => {
+    audio.volume = volumeSlider.value / 100;
+  });
+</script>
+
   <main class="container">
     <h1>CRYPTED'S HALL OF FAME</h1>
     <p class="sub">My favourite people <3.</p>
