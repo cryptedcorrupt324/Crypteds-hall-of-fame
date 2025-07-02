@@ -6,12 +6,10 @@
   <title>CRYPTED'S HALL OF FAME</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     body {
@@ -21,7 +19,6 @@
       padding: 40px 20px;
       min-height: 100vh;
       text-align: center;
-      position: relative;
     }
 
     canvas#particles {
@@ -32,6 +29,22 @@
       width: 100vw;
       height: 100vh;
       pointer-events: none;
+    }
+
+    .top-bar {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      font-size: 0.6rem;
+      color: #00ffaa;
+      display: flex;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .top-bar i {
+      margin-right: 6px;
+      font-style: normal;
     }
 
     .container {
@@ -56,7 +69,7 @@
       flex-wrap: wrap;
       gap: 30px;
       justify-content: center;
-      margin-bottom: 60px;
+      margin-bottom: 100px;
     }
 
     .hof-card {
@@ -65,8 +78,11 @@
       padding: 20px;
       border-radius: 12px;
       width: 220px;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 0 15px #00ffee;
       cursor: pointer;
+      position: relative;
+      z-index: 10;
     }
 
     .hof-card:hover {
@@ -109,14 +125,13 @@
       position: fixed;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%) scale(1.5);
-      width: 80vw;
+      transform: translate(-50%, -50%) scale(1);
+      width: 90vw;
       max-width: 600px;
-      height: auto;
-      z-index: 9999;
+      z-index: 10001;
       background: #1a1a1a;
       box-shadow: 0 0 40px #00ffee;
-      transition: all 0.3s ease;
+      padding: 30px;
     }
 
     .fullscreen-blur {
@@ -125,93 +140,107 @@
       backdrop-filter: blur(12px);
       background: rgba(0, 0, 0, 0.6);
       z-index: 10000;
-      opacity: 1;
-      transition: opacity 0.3s ease;
+    }
+
+    .footer-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #111;
+      color: #00ffee;
+      text-align: center;
+      font-family: 'Press Start 2P', monospace;
+      padding: 10px;
+      font-size: 0.55rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      z-index: 9999;
     }
   </style>
 </head>
 <body>
 
+<div class="top-bar">
+  <i>👁️</i><span id="viewCount">Views: 0</span>
+</div>
+
 <canvas id="particles"></canvas>
 
 <main class="container">
   <h1>CRYPTED'S HALL OF FAME</h1>
-  <p class="sub">Cool People &lt;3</p>
+  <p class="sub">Cool People <3.</p>
   <div class="hof-grid">
-
     <div class="hof-card">
       <img src="https://placekitten.com/151/151" alt="">
       <h2>@cry.dev</h2>
       <p>The creator/founder.</p>
       <p class="rank purple">Founder</p>
     </div>
-
     <div class="hof-card">
       <img src="https://placekitten.com/151/151" alt="">
       <h2>@steinistuff</h2>
       <p>You're a good and funny friend stein. You're my favourite friend and i trust you the most.</p>
       <p class="rank yellow">Co-Owner</p>
     </div>
-
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1187459046358388826/1384934409609936967/hehe_game_update_thing.png" alt="">
       <h2>@themonkeyman642</h2>
       <p>Funny and helpful friend. Thanks for being there for me when i needed it.</p>
       <p class="rank red">Admin</p>
     </div>
-
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@Tophat/Fordf150</h2>
       <p>Very good and funny friend. You can also be crazy.</p>
       <p class="rank blue">Mod</p>
     </div>
-
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@frostydevlmao</h2>
       <p>Helps me and plays VR with me a lot.</p>
       <p class="rank blue">Mod</p>
     </div>
-
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@idkjaden</h2>
       <p>We dont talk alot but hes funny and we joke around alot.</p>
       <p class="rank gray">Member</p>
     </div>
-
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@cheesygtag</h2>
       <p>Very nice but when it comes to Minecraft he can be a meanie.</p>
       <p class="rank gray">Member</p>
     </div>
-
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>@ttrfreaky</h2>
       <p>He's funny, he can be nice and mean, also a little freaky...</p>
       <p class="rank gray">Member</p>
     </div>
-
     <div class="hof-card">
       <img src="https://cdn.discordapp.com/attachments/1376307083376590982/1385114892436111400/fordf150.png" alt="">
       <h2>Aqua</h2>
       <p>He's funny and cool, he helps me.</p>
       <p class="rank gray">Member</p>
     </div>
-
   </div>
 </main>
 
-<script>
-  const canvas = document.getElementById('particles');
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+<div class="footer-bar">
+  <p>CRYPTED. HOF</p>
+</div>
 
-  const particles = [];
+<script>
+  const canvas = document.getElementById('particles')
+  const ctx = canvas.getContext('2d')
+  canvas.width = window.innerWidth
+  canvas.height = window.innerHeight
+
+  const particles = []
   for (let i = 0; i < 100; i++) {
     particles.push({
       x: Math.random() * canvas.width,
@@ -219,49 +248,53 @@
       size: Math.random() * 2 + 1,
       dx: (Math.random() - 0.5) * 0.5,
       dy: (Math.random() - 0.5) * 0.5
-    });
+    })
   }
 
   function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
     particles.forEach(p => {
-      p.x += p.dx;
-      p.y += p.dy;
-      if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-      ctx.fillStyle = 'rgba(0, 255, 255, 0.4)';
-      ctx.fill();
-    });
-    requestAnimationFrame(animate);
+      p.x += p.dx
+      p.y += p.dy
+      if (p.x < 0 || p.x > canvas.width) p.dx *= -1
+      if (p.y < 0 || p.y > canvas.height) p.dy *= -1
+      ctx.beginPath()
+      ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
+      ctx.fillStyle = 'rgba(0, 255, 255, 0.4)'
+      ctx.fill()
+    })
+    requestAnimationFrame(animate)
   }
 
-  animate();
+  animate()
 
   window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  });
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+  })
 
   document.querySelectorAll('.hof-card').forEach(card => {
-    card.addEventListener('click', function () {
-      const isFullscreen = card.classList.contains('fullscreen');
-      document.querySelectorAll('.hof-card.fullscreen').forEach(c => c.classList.remove('fullscreen'));
-      document.querySelectorAll('.fullscreen-blur').forEach(b => b.remove());
-
+    card.addEventListener('click', () => {
+      const isFullscreen = card.classList.contains('fullscreen')
+      document.querySelectorAll('.hof-card.fullscreen').forEach(c => c.classList.remove('fullscreen'))
+      document.querySelectorAll('.fullscreen-blur').forEach(b => b.remove())
       if (!isFullscreen) {
-        card.classList.add('fullscreen');
-        const blur = document.createElement('div');
-        blur.className = 'fullscreen-blur';
+        card.classList.add('fullscreen')
+        const blur = document.createElement('div')
+        blur.className = 'fullscreen-blur'
         blur.addEventListener('click', () => {
-          card.classList.remove('fullscreen');
-          blur.remove();
-        });
-        document.body.appendChild(blur);
+          card.classList.remove('fullscreen')
+          blur.remove()
+        })
+        document.body.appendChild(blur)
       }
-    });
-  });
+    })
+  })
+
+  const views = localStorage.getItem('viewCount') || 0
+  const newViews = parseInt(views) + 1
+  localStorage.setItem('viewCount', newViews)
+  document.getElementById('viewCount').innerText = `Views: ${newViews}`
 </script>
 
 </body>
