@@ -87,41 +87,6 @@ h1 {
   transition: all 0.3s ease;
 }
 
-.footer-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #111;
-  color: #00ffee;
-  text-align: center;
-  font-family: 'Press Start 2P', monospace;
-  padding: 10px;
-  font-size: 0.55rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  z-index: 9999;
-  box-shadow: 0 -2px 10px rgba(0, 255, 255, 0.2);
-}
-
-.discord-btn {
-  background: #5865F2;
-  color: white;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 0.6rem;
-  font-family: 'Press Start 2P', monospace;
-  box-shadow: 0 0 8px #5865F2;
-  transition: background 0.3s ease;
-}
-
-.discord-btn:hover {
-  background: #4752C4;
-}
-
 .fullscreen-blur {
   position: fixed;
   inset: 0;
